@@ -1,0 +1,14 @@
+﻿<h1>Hi {{currentUser.firstName}}!</h1>
+<p>You're logged in with Knowledge-Vault !!</p>
+<p>You're a SME can access to change </p>
+<h3>All registered SME's:</h3>
+<ul>
+    <li *ngFor="let user of users">
+        
+        <div *ngIf="user.role === 'SME' ">
+        <p>{{user.username}} ({{user.firstName}} {{user.lastName}})</p>
+        <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+        </div>
+    </li>
+</ul>
+<p><a [routerLink]="['/login']">Logout</a></p>
